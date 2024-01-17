@@ -1,0 +1,13 @@
+---
+- name: Display Hostname
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Get Hostname
+      command: hostname
+      register: hostname_output
+
+    - name: Display Hostname
+      debug:
+        var: hostname_output.stdout
